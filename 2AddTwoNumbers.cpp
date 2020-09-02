@@ -22,6 +22,28 @@ Output: (7 -> 0 -> 5)
 Explanation: 42 + 465 = 507
 */
 
+
+// O(max(m,n)) time | O(max(m,n)) space - where m and n are lengths of singly linked list 1 and 2. 
+// l1 -> 2 -> 4 -> 3
+// l2 -> 5 -> 6 -> 4
+// ans, prev 
+/*
+Initialize current node to dummy head of the returning list. 
+Initialize carry to 0. 
+Initialize pp and qq to head of l1 and l2 respectively.
+Loop through lists l1 and l2 until you reach both ends.
+Set xx to node pp's value. If pp has reached the end of l1, set to 00.
+Set yy to node qq's value. If qq has reached the end of l2, set to 00. 
+Set sum = x + y + carry. 
+Update carry = sum / 10.
+Create a new node with the digit value of (sum mode 10) and set it to current node's next, then advance current node to next. 
+Advane both pp and qq.
+Check if carry = 1, if so append a new node with digit l1 to the returning list.
+Return dummy head's next node. 
+*/
+
+
+
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
