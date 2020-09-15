@@ -94,6 +94,15 @@ void print_LL(ListNode *node) {
 }
 
 
+/*
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) 
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807. 
+
+Input: (2 -> 4) + (5 -> 6 -> 4) 
+Output: (7 -> 0 -> 5)
+Explanation: 42 + 465 = 507
+*/
 int main() {
     
     ListNode *l1_3 = new ListNode(3); 
