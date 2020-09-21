@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <assert.h> 
+#include <queue> 
 
 using namespace std;
 
@@ -24,7 +25,43 @@ public:
         dfs(grid, i, j - 1); // leftward 
         dfs(grid, i, j + 1); // rightward 
     }
-    
+
+    void bfs(vector<vector<char>>& grid, int r, int c) {
+        int width = grid[0].size();
+        int height = grid.size(); 
+        
+        grid[r][c] = '0'; // Mark the visited node as 0. 
+        queue<pair<int, int>> neighbors;
+        neighbors.push({r,c}); 
+        
+        while(!neighbors.empty()) {
+            auto rc = neighbors.front(); 
+            int row = rc.first, col = rc.second; 
+            neighbors.pop(); 
+            
+            if (row-1 >= 0 && grid[row-1][col] == '1') {
+                neighbors.push({row-1, col});
+                grid[row-1][col] = '0'; 
+            }
+            if (row+1 < height && grid[row+1][col] == '1') {
+                neighbors.push({row+1, col});
+                grid[row+1][col] = '0';
+            }
+            if (col-1 >= 0 && grid[row][col-1] == '1') {
+                neighbors.push({row, col-1}); 
+                grid[row][col-1] = '0'; 
+            }
+            if (col+1 < width && grid[row][col+1] == '1') {
+                neighbors.push({row, col+1});
+                grid[row][col+1] = '0'; 
+            }
+        }
+        
+    }
+
+
+   
+ 
     // O(M*N) time | O(M*N) space, where M = width, N = height. 
     int numIslands(vector<vector<char>>& grid) { 
                 
@@ -42,7 +79,8 @@ public:
             for(int j=0; j<width; j++) { 
                 if (grid[i][j] == '1') { 
                     numIslands++;       // Found the first '1' of an island. 
-                    dfs(grid, i, j);    // Then, nullify all the '1's of this island. i.e. set to 0. 
+                    //dfs(grid, i, j);    // Then, nullify all the '1's of this island. i.e. set to 0.
+                    bfs(grid, i, j);  
                 }
             }
         } 
