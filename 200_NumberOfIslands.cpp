@@ -26,12 +26,13 @@ public:
         dfs(grid, i, j + 1); // rightward 
     }
 
+
     void bfs(vector<vector<char>>& grid, int r, int c) {
         int width = grid[0].size();
         int height = grid.size(); 
         
         grid[r][c] = '0'; // Mark the visited node as 0. 
-        queue<pair<int, int>> neighbors;
+        queue<pair<int, int>> neighbors; 
         neighbors.push({r,c}); 
         
         while(!neighbors.empty()) {
@@ -59,8 +60,6 @@ public:
         
     }
 
-
-   
  
     // O(M*N) time | O(M*N) space, where M = width, N = height. 
     int numIslands(vector<vector<char>>& grid) { 
