@@ -19,9 +19,11 @@ using namespace std;
 
 /* Evict the Least Recently Used k-v pair. */ 
 class LRUCache {
+private:
     list<pair<int, int>> dll; // <key, value> 
     unordered_map<int, list<pair<int,int>>::iterator> m; // key -> node* 
     int csize = 0;
+    
 public:
     LRUCache(int capacity) {
         csize = capacity;
