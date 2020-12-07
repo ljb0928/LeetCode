@@ -23,8 +23,14 @@ As you traverse the LL iteratively, modify the two LLs by linking into a single 
 ```
 
 ```
-42_TrappingRainWater: Gotta find a formula / method / pattern solve optimally. 2 pointer technique. 
+42_TrappingRainWater: Gotta find a formula / method / pattern solve optimally. 
+2 pointer technique. 
 ``` 
+
+```
+5_LongestPalindromicSubstring: Two pointer technique. Linear scan a string to pick a center, 
+and expand from the center. 
+```
 
 ```
 62_UniquePaths: Recursion. Or, standard dynamic programming problem using systolic array style. 
